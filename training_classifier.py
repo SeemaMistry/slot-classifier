@@ -3,6 +3,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 from data_generator import training_df, locations, symptoms, provider_type  # import data sample set
 
+import time
+
 import spacy
 # Load SpaCy NER model for location extraction
 nlp = spacy.load("en_core_web_sm")
@@ -156,15 +158,22 @@ sample_chats = [
     }
 ]
 
-# Example: access first conversation messages
-print(sample_chats[0]["messages"])
 
 for chat in sample_chats:
-    print(f"------ Chat id: {chat['id']} ------\nMessages and User State Information:", )
+    print(f"------ Chat id: {chat['id']} ------ Messages and User State Information: --------\n" )
+    
+    chat_start = time.time() # start total chat timer
+
     for msg in chat['messages']:
+        msg_start = time.time()  # start per-message timer
         state = update_user_state_multilabel(msg, user_state)
-        print(f"{msg}\n{state}\n")
-    print(f"\n---------------------------------\n")
+        msg_end = time.time()
+        print(f"{msg}\n{state}")
+        print(f"Time for this message: {msg_end - msg_start:.4f} seconds\n") # message time
+    
+    chat_end = time.time() # end total chat timer 
+    print(f"Total time for chat: {chat_end - chat_start:.4f} seconds\n") # chat time
+    print(f"--------------------------------------------------\n\n")
     # reset for next chat
     user_state = {
     "symptom": None,

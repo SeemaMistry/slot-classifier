@@ -20,9 +20,9 @@ This is a lightweight script designed to run in parallel with a larger LLM. Each
 - Current keyword matching is simple and may miss synonyms, slang, or casual language variations.
 - Symptoms and provider types can be noisy or duplicated due to overlapping keywords.
 - Future integration with a science-based or domain-specific NER model could (SciSpacy and en_ner_bionlp13cg_md):
-- - Automatically handle synonyms, plural forms, and casual expressions.
-- - Improve extraction accuracy across diverse user input.
-- - Reduce the need for manually curated keyword lists.
+    - Automatically handle synonyms, plural forms, and casual expressions.
+    - Improve extraction accuracy across diverse user input.
+    - Reduce the need for manually curated keyword lists.
 
 ## Examples
 Test cases of user chats sent to MIRA and the user state updated each time. Chat messages can contain multiple slots to collect at once. Each message also shows time in seconds to indicate how fast the slot extraction runs.

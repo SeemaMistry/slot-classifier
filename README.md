@@ -24,22 +24,22 @@ Future integration with a science-based or domain-specific NER model could impro
 ## Examples 
 Test cases of user chats sents to MIRA and the data updated to User State each time. Chat messages can contain multiple slots to collect at once. 
 
-```bash
+<pre>
 ------ Chat id: 1 ------ Messages and User State Information: --------
 
 Hi, I'm feeling really anxious lately and can't sleep at night.
 {'symptom': ['anxious'], 'location': None, 'provider_type': None}
-Time for this message: 0.0085 seconds
+Time for this message: <span style="color:red">0.0085 seconds</span>
 
 I think I need to see a therapist near Toronto.
 {'symptom': ['anxious'], 'location': ['Toronto'], 'provider_type': ['therapist', 'Therapist']}
-Time for this message: 0.0055 seconds
+Time for this message: <span style="color:red">0.0055 seconds</span>
 
 Also, sometimes I get headaches and fatigue during the day.
 {'symptom': ['anxious', 'headache', 'fatigue'], 'location': ['Toronto'], 'provider_type': ['therapist', 'Therapist']}
-Time for this message: 0.0106 seconds
+Time for this message: <span style="color:red">0.0106 seconds</span>
 
-Total time for chat: 0.0270 seconds
+Total time for chat: <span style="color:red">0.0270 seconds</span>
 
 --------------------------------------------------
 
@@ -48,17 +48,17 @@ Total time for chat: 0.0270 seconds
 
 Hey, I've been depressed and stressed for weeks.
 {'symptom': ['stressed'], 'location': None, 'provider_type': None}
-Time for this message: 0.0066 seconds
+Time for this message: <span style="color:red">0.0066 seconds</span>
 
 Do you know a good psychiatrist in Vancouver?
 {'symptom': ['stressed'], 'location': ['Vancouver'], 'provider_type': ['Psychiatrist', 'psychiatrist']}
-Time for this message: 0.0108 seconds
+Time for this message: <span style="color:red">0.0108 seconds</span>
 
 I also feel dizzy and have chest pain occasionally.
 {'symptom': ['chest pain', 'stressed', 'pain'], 'location': ['Vancouver'], 'provider_type': ['Psychiatrist', 'psychiatrist']}
-Time for this message: 0.0054 seconds
+Time for this message: <span style="color:red">0.0054 seconds</span>
 
-Total time for chat: 0.0248 seconds
+Total time for chat: <span style="color:red">0.0248 seconds</span>
 
 --------------------------------------------------
 
@@ -67,17 +67,17 @@ Total time for chat: 0.0248 seconds
 
 Hello, my child might have ADHD and needs help.
 {'symptom': ['adhd'], 'location': None, 'provider_type': None}
-Time for this message: 0.0087 seconds
+Time for this message: <span style="color:red">0.0087 seconds</span>
 
 Looking for a pediatrician or psychologist nearby.
 {'symptom': ['adhd'], 'location': None, 'provider_type': ['Psychologist', 'psychologist', 'pediatrician']}
-Time for this message: 0.0052 seconds
+Time for this message: <span style="color:red">0.0052 seconds</span>
 
 They get frustrated easily and have trouble focusing at school.
 {'symptom': ['adhd'], 'location': None, 'provider_type': ['Psychologist', 'psychologist', 'pediatrician']}
-Time for this message: 0.0104 seconds
+Time for this message: <span style="color:red">0.0104 seconds</span>
 
-Total time for chat: 0.0263 seconds
+Total time for chat: <span style="color:red">0.0263 seconds</span>
 
 --------------------------------------------------
 
@@ -86,17 +86,17 @@ Total time for chat: 0.0263 seconds
 
 I sometimes feel very sad and hopeless.
 {'symptom': ['sad'], 'location': None, 'provider_type': None}
-Time for this message: 0.0053 seconds
+Time for this message: <span style="color:red">0.0053 seconds</span>
 
 Is there a support group or online therapy I can join?
 {'symptom': ['sad'], 'location': None, 'provider_type': ['online therapy', 'Support Group', 'Online Therapy', 'support group']}
-Time for this message: 0.0083 seconds
+Time for this message: <span style="color:red">0.0083 seconds</span>
 
 Also, I've had nausea and fatigue for the past week.
 {'symptom': ['nausea', 'fatigue', 'sad'], 'location': None, 'provider_type': ['online therapy', 'Support Group', 'Online Therapy', 'support group']}
-Time for this message: 0.0059 seconds
+Time for this message: <span style="color:red">0.0059 seconds</span>
 
-Total time for chat: 0.0215 seconds
+Total time for chat: <span style="color:red">0.0215 seconds</span>
 
 --------------------------------------------------
 
@@ -105,17 +105,17 @@ Total time for chat: 0.0215 seconds
 
 Hi, I'm looking for addiction services in Calgary.
 {'symptom': ['addiction'], 'location': ['Calgary'], 'provider_type': ['addiction services', 'Addiction Services']}
-Time for this message: 0.0077 seconds
+Time for this message: <span style="color:red">0.0077 seconds</span>
 
 I have trouble with substance use and anxiety.
 {'symptom': ['addiction', 'Anxiety', 'anxiety'], 'location': ['Calgary'], 'provider_type': ['addiction services', 'Addiction Services']}
-Time for this message: 0.0058 seconds
+Time for this message: <span style="color:red">0.0058 seconds</span>
 
 Do you have any mental health counselor recommendations?
 {'symptom': ['addiction', 'Anxiety', 'anxiety'], 'location': ['Calgary'], 'provider_type': ['addiction services', 'mental health counselor', 'Mental Health Counselor', 'Addiction Services']}
-Time for this message: 0.0096 seconds
+Time for this message: <span style="color:red">0.0096 seconds</span>
 
-Total time for chat: 0.0252 seconds
+Total time for chat: <span style="color:red">0.0252 seconds</span>
 
 --------------------------------------------------
-```
+</pre>

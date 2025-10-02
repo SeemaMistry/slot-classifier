@@ -24,7 +24,7 @@ Future integration with a science-based or domain-specific NER model could impro
 ## Examples 
 Test cases of user chats sents to MIRA and the data updated to User State each time. Chat messages can contain multiple slots to collect at once. 
 
-```
+```bash
 ------ Chat id: 1 ------ Messages and User State Information: --------
 
 Hi, I'm feeling really anxious lately and can't sleep at night.

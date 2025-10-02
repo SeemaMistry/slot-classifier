@@ -65,13 +65,14 @@ def update_user_state_multilabel(message, state):
     state: dict, current user state
     Update user_state for symptom, location, and provider_type all at once.
     """
-    # Symptoms
-    found_symptoms = extract_entities(message, symptoms)
+    # Symptoms (keyword look up only)
+    # would like to update to SciSpacy and en_ner_bionlp13cg_md but wont download on my system
+    found_symptoms = set(extract_entities(message, symptoms))
     if found_symptoms:
         if state["symptom"] is None:
-            state["symptom"] = found_symptoms
+            state["symptom"] = list(found_symptoms)
         else:
-            state["symptom"] = list(set(state["symptom"] + found_symptoms))
+            state["symptom"] = list(set(state["symptom"]) | found_symptoms)
     
     # Locations (with NER)
     found_locations = set(extract_entities(message, locations) + extract_locations_ner(message))
@@ -82,24 +83,94 @@ def update_user_state_multilabel(message, state):
             state["location"] = list(set(state["location"]) | set(found_locations))
 
     # Provider Type
-    found_provider = extract_entities(message, provider_type)
+    # would like to update to SciSpacy and en_ner_bionlp13cg_md but wont download on my system
+    found_provider = set(extract_entities(message, provider_type))
     if found_provider:
         if state["provider_type"] is None:
-            state["provider_type"] = found_provider
+            state["provider_type"] = list(found_provider)
         else:
-            state["provider_type"] = list(set(state["provider_type"] + found_provider))
+            state["provider_type"] = list(set(state["provider_type"]) | found_provider)
 
 
     return state
 
-multi_label_messages = [
-    "I have depression and live in Perth but can also go to Ottawa",
-    "I’m looking for a therapist in Ontario",
-    "Can you help me with ADHD and anxiety?",
-    "I live in Russell but I have a car. I can go to any location in the Ottawa area."
+# multi_label_messages = [
+#     "I have depression and live in Perth but can also go to Ottawa",
+#     "I’m looking for a therapist in Ontario",
+#     "Can you help me with ADHD and anxiety?",
+#     "I live in Russell but I have a car. I can go to any location in the Ottawa area."
 
+# ]
+
+# for msg in multi_label_messages:
+#     user_state = update_user_state_multilabel(msg, user_state)
+#     print(user_state)
+
+
+# Sample conversations object
+sample_chats = [
+    {
+        "id": 1,
+        "user": "User1",
+        "messages": [
+            "Hi, I'm feeling really anxious lately and can't sleep at night.",
+            "I think I need to see a therapist near Toronto.",
+            "Also, sometimes I get headaches and fatigue during the day."
+        ]
+    },
+    {
+        "id": 2,
+        "user": "User2",
+        "messages": [
+            "Hey, I've been depressed and stressed for weeks.",
+            "Do you know a good psychiatrist in Vancouver?",
+            "I also feel dizzy and have chest pain occasionally."
+        ]
+    },
+    {
+        "id": 3,
+        "user": "User3",
+        "messages": [
+            "Hello, my child might have ADHD and needs help.",
+            "Looking for a pediatrician or psychologist nearby.",
+            "They get frustrated easily and have trouble focusing at school."
+        ]
+    },
+    {
+        "id": 4,
+        "user": "User4",
+        "messages": [
+            "I sometimes feel very sad and hopeless.",
+            "Is there a support group or online therapy I can join?",
+            "Also, I've had nausea and fatigue for the past week."
+        ]
+    },
+    {
+        "id": 5,
+        "user": "User5",
+        "messages": [
+            "Hi, I'm looking for addiction services in Calgary.",
+            "I have trouble with substance use and anxiety.",
+            "Do you have any mental health counselor recommendations?"
+        ]
+    }
 ]
 
-for msg in multi_label_messages:
-    user_state = update_user_state_multilabel(msg, user_state)
-    print(user_state)
+# Example: access first conversation messages
+print(sample_chats[0]["messages"])
+
+for chat in sample_chats:
+    print(f"------ Chat id: {chat['id']} ------\nMessages and User State Information:", )
+    for msg in chat['messages']:
+        state = update_user_state_multilabel(msg, user_state)
+        print(f"{msg}\n{state}\n")
+    print(f"\n---------------------------------\n")
+    # reset for next chat
+    user_state = {
+    "symptom": None,
+    "location": None,
+    "provider_type": None
+}
+
+
+

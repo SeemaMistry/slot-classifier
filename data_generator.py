@@ -2,7 +2,25 @@ import pandas as pd
 
 symptoms = ["Anxiety", "Depression", "Bipolar disorder", "Schizophrenia", "Post‑traumatic stress disorder (PTSD)", "Obsessive‑compulsive disorder (OCD)", "Eating disorders", "Attention‑deficit/hyperactivity disorder (ADHD)", "Autism spectrum disorder", "Substance use disorders",
              "fatigue", "sad", "stressed", "anxious"  # common layperson terms
-             "ADHD"
+             "ADHD",
+               "headache", "fever", "cough", "fatigue", "nausea", "dizziness", 
+    "pain", "shortness of breath", "rash", "chest pain",
+        # Mental health conditions (formal)
+    "anxiety", "depression", "bipolar disorder", "schizophrenia", 
+    "post-traumatic stress disorder", "ptsd", "obsessive-compulsive disorder", "ocd",
+    "eating disorders", "adhd", "attention-deficit/hyperactivity disorder", 
+    "autism spectrum disorder", "substance use disorders", "addiction",
+
+    # Layperson mental health terms
+    "sad", "stressed", "anxious", "overwhelmed", "nervous", "scared", 
+    "down", "burned out", "tired", "moody", "panic attacks", "worrying too much", 
+    "can't focus", "trouble sleeping", "sleep issues", "low energy", "brain fog",
+
+    # Physical symptoms
+    "headache", "fever", "cough", "fatigue", "nausea", "dizziness", 
+    "pain", "shortness of breath", "rash", "chest pain", "stomach ache", 
+    "back pain", "muscle pain", "joint pain", "numbness", "tingling", "heart palpitations"
+
              ]
 locations = ["British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario", "Quebec", "Nova Scotia", "Prince Edward Island", "Northwest Territories", "Nunavut",  "Toronto",
     "Montreal",
@@ -24,7 +42,22 @@ locations = ["British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario
     "St. John's",
     "Kelowna",
     "Barrie"]
-provider_type = ["Therapist", "Psychologist", "Psychiatrist", "Primary Care Physician", "Clinical Social Worker", "Counsellor", "Peer Support", "Crisis Hotline", "Online Therapy", "Support Group", "Medication Management", "Addiction Services", "Rehabilitation Services", "Mental Health Clinic", "Health Care Provider", "Mental Health Counselor", "Mental Health Nurse"]
+provider_type = ["Therapist", "Psychologist", "Psychiatrist", "Primary Care Physician", "Clinical Social Worker", "Counsellor", "Peer Support", "Crisis Hotline", "Online Therapy", "Support Group", "Medication Management", "Addiction Services", "Rehabilitation Services", "Mental Health Clinic", "Health Care Provider", "Mental Health Counselor", "Mental Health Nurse",
+                     "gp", "general practitioner", "cardiologist", "dermatologist",
+    # Mental health
+    "therapist", "psychologist", "psychiatrist", "primary care physician", "clinical social worker", 
+    "counsellor", "peer support", "crisis hotline", "online therapy", "support group", 
+    "medication management", "addiction services", "rehabilitation services", "mental health clinic", 
+    "health care provider", "mental health counselor", "mental health nurse",
+
+    # General and specialist doctors
+    "gp", "general practitioner", "family doctor", "doctor", "cardiologist", "dermatologist", 
+    "pediatrician", "surgeon", "oncologist", "internist", "neurologist", "endocrinologist",
+
+    # Casual user terms
+    "shrink", "therapist online", "online doctor", "doctor appointment", "clinic", "walk-in clinic"
+         
+                 ]
 
 data = []
 

@@ -1,30 +1,42 @@
 # slot-classifier
+
 Slot classifier of key user profile data for mental health library resource chatbot (MDSC)
 
 ## Multi-Label Slot Extraction Overview
 
 This project extracts user-provided information from conversational text into structured slots: symptom, location, and provider_type. It currently uses spaCy with the small English model (en_core_web_sm) for named entity recognition (NER) to detect locations (GPE) and a keyword-based approach to identify symptoms and provider types from predefined lists.
 
-## Techniques Used:
+This is a lightweight script designed to run in parallel with a larger LLM. Each chat message is first processed by this slot classifier to populate structured data, which is then passed to the LLM. This helps the LLM generate more accurate and context-aware responses. The script also records processing time per message for reference.
 
-NER with spaCy for location extraction.
+## Techniques Used
+
+NER with spaCy for location extraction (GPE).
 
 Keyword matching with normalization (case-insensitive) for symptoms and provider types.
 
 Set operations to maintain unique slot values across multiple messages in a conversation.
 
-## Limitations & Future Improvements:
+Timing measurement to track processing duration for each message (proof-of-concept metric).
 
-Current keyword matching is simple and may miss synonyms or casual language variations.
+
+## Limitations & Future Improvements
+
+Current keyword matching is simple and may miss synonyms, slang, or casual language variations.
 
 Symptoms and provider types can be noisy or duplicated due to overlapping keywords.
 
-Future integration with a science-based or domain-specific NER model could improve extraction accuracy, handle synonyms, plural forms, and more complex entity patterns automatically.
+Future integration with a science-based or domain-specific NER model could:
 
-## Examples 
-Test cases of user chats sents to MIRA and the data updated to User State each time. Chat messages can contain multiple slots to collect at once. 
+Automatically handle synonyms, plural forms, and casual expressions.
 
-<pre>
+Improve extraction accuracy across diverse user input.
+
+Reduce the need for manually curated keyword lists.
+
+## Examples
+Test cases of user chats sent to MIRA and the user state updated each time. Chat messages can contain multiple slots to collect at once. Each message also shows time in seconds to indicate how fast the slot extraction runs.
+
+```
 ------ Chat id: 1 ------ Messages and User State Information: --------
 
 Hi, I'm feeling really anxious lately and can't sleep at night.
@@ -118,4 +130,4 @@ Do you have any mental health counselor recommendations?
 ❗❗ Total time for chat: 0.0252 seconds
 
 --------------------------------------------------
-</pre>
+```

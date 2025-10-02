@@ -1,6 +1,9 @@
 import pandas as pd
 
-symptoms = ["Anxiety", "Depression", "Bipolar disorder", "Schizophrenia", "Post‑traumatic stress disorder (PTSD)", "Obsessive‑compulsive disorder (OCD)", "Eating disorders", "Attention‑deficit/hyperactivity disorder (ADHD)", "Autism spectrum disorder", "Substance use disorders"]
+symptoms = ["Anxiety", "Depression", "Bipolar disorder", "Schizophrenia", "Post‑traumatic stress disorder (PTSD)", "Obsessive‑compulsive disorder (OCD)", "Eating disorders", "Attention‑deficit/hyperactivity disorder (ADHD)", "Autism spectrum disorder", "Substance use disorders",
+             "fatigue", "sad", "stressed", "anxious"  # common layperson terms
+             "ADHD"
+             ]
 locations = ["British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario", "Quebec", "Nova Scotia", "Prince Edward Island", "Northwest Territories", "Nunavut",  "Toronto",
     "Montreal",
     "Vancouver",

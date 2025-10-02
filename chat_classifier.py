@@ -45,3 +45,7 @@ clf.fit(x, y)
 
 y_pred = clf.predict(x)
 print(classification_report(y, y_pred))
+
+symptoms = ["Anxiety", "Depression", "Bipolar disorder", "Schizophrenia", "Post‑traumatic stress disorder (PTSD)", "Obsessive‑compulsive disorder (OCD)", "Eating disorders", "Attention‑deficit/hyperactivity disorder (ADHD)", "Autism spectrum disorder", "Substance use disorders"]
+locations = ["British Columbia", "Alberta", "Saskatchewan", "Manitoba", "Ontario", "Quebec", "Nova Scotia", "Prince Edward Island", "Northwest Territories", "Nunavut"]
+provider_type = ["Therapist", "Psychologist", "Psychiatrist", "Primary Care Physician", "Clinical Social Worker", "Counsellor", "Peer Support", "Crisis Hotline", "Online Therapy", "Support Group", "Medication Management", "Addiction Services", "Rehabilitation Services", "Mental Health Clinic", "Health Care Provider", "Mental Health Counselor", "Mental Health Nurse"]
